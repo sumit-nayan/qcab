@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UPSC Mains QCAB Generator</title>
+    <link rel="stylesheet" href="./style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+</head>
+<body>
+    <div class="main-content">
+        <div class="header-container">
+            <h1>UPSC Mains QCAB Generator</h1>
+            <div class="nav-links">
+                <a href="https://anand-verma.github.io/">Home</a>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScfw6Ex_n5BXu-yqykG25pDaENT91RoOCzTO32eJvDEzj7JRA/viewform">Feedback</a>
+            </div>
+        </div>
+
+        <div class="layout-grid">
+            
+            <div class="left-column">
+                
+                <div class="card custom-form-container">
+                    <h3>➕ Create Custom Practice Question</h3>
+                    <textarea id="customQText" placeholder="Type your custom question here..."></textarea>
+                    
+                    <div class="custom-form-controls">
+                        <label>GS Paper: 
+                            <select id="customGS">
+                                <option value="">Select GS...</option>
+                                <option value="GS1">GS 1</option>
+                                <option value="GS2">GS 2</option>
+                                <option value="GS3">GS 3</option>
+                                <option value="GS4">GS 4</option>
+                            </select>
+                        </label>
+                        <label>Topic: 
+                            <select id="customTopic">
+                                <option value="">Select GS Paper first...</option>
+                            </select>
+                        </label>
+                        <label>Marks: 
+                            <select id="customMarks">
+                                <option value="10">10</option>
+                                <option value="15">15</option>
+                                <option value="20">20</option>
+                            </select>
+                        </label>
+                        <button id="addCustomBtn" class="btn-primary">Add to Cart</button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>🔍 Browse & Select PYQs</h3>
+                    <div class="filter-mode">
+                        <label><input type="radio" name="mode" value="year-gs" checked> By Year + GS</label>
+                        <label><input type="radio" name="mode" value="gs-syllabus"> By GS + Syllabus</label>
+                    </div>
+                    <div id="filters" class="filters-container"></div>
+
+                    <div class="table-wrapper">
+                        <table id="questionsTable">
+                            <thead>
+                                <tr>
+                                    <th>Year</th>
+                                    <th>GS</th>
+                                    <th>Question</th>
+                                    <th>Marks</th>
+                                    <th>Action</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="right-column">
+                <div class="card cart-container">
+                    <h3>🛒 My Question Cart</h3>
+                    <div class="cart-summary">
+                        Total Questions: <span id="cartCount" class="badge">0</span><br>
+                        Total Marks: <span id="cartMarks" class="badge marks">0</span>
+                    </div>
+                    
+                    <div class="cart-items" id="cartItemsContainer">
+                        <p class="empty-cart-msg">Your cart is empty. Add questions to generate a QCAB.</p>
+                    </div>
+
+                    <button id="generateQCABBtn" class="btn-success" disabled>Generate & Download PDF</button>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
